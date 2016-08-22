@@ -1,6 +1,6 @@
 """The baseclass for all environments"""
 
-class Environment(object):
+class EnvironmentBase(object):
     """Base class for all environments"""
 
     @property

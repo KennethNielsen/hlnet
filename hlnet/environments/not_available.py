@@ -6,19 +6,12 @@ from .base import EnvironmentBase, NoExecutable
 
 class Environment(EnvironmentBase):
 
-    name = 'Python 2'
-    test_suffix = 'py2.py'
+    name = 'Not available test env'
+    test_suffix = 'na.py'
 
     def get_executable(self):
         """Return the Python 2 executable"""
-        platform = sys.platform
-        if platform == 'linux':
-            try:
-                return subprocess.check_output('which python2', shell=True).strip().decode('ascii')
-            except subprocess.CalledProcessError:
-                pass
-
-        message = 'No executeable could be found for Python 2'
+        message = 'No not_available executeable on this platform'
         raise NoExecutable(message)
 
     @property
@@ -31,8 +24,3 @@ class Environment(EnvironmentBase):
         except NoExecutable:
             return False
         return True
-
-if __name__ == '__main__':
-    env = Python2()
-    print(env.get_executable())
-    print(env.has_executable)
